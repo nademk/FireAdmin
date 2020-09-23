@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"/>
+
+    <!-- Bootstrap js -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"/>
+
+    <!-- My CSS -->
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Categories</title>
+</head>
+<body>
+
+    <h2>Categories</h2>
+
+    <hr />
+
+    <div class="row">
+ 	    <div class="col-lg-5 cat-div">
+        
+            <h4>Add new</h4>
+            <br />
+            <form id="new-category">
+                <div class="form-group">
+                    <label for="category-name">Enter Name</label>
+                    <input type="text" id="category-name" class="form-control" />
+                    <div class="invalid-feedback">
+                        Please enter category name
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="category-desc">Description</label>
+                    <input type="text" id="category-desc" class="form-control" />
+                    <div class="invalid-feedback">
+                        Please enter a description
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="category-thumbnail">Thumbnail</label>
+                    <input style="height:auto;" type="file" id="category-thumbnail" class="form-control" />
+                    <div class="invalid-feedback">
+                        Choose a valid thumbnail
+                    </div>
+                </div>
+                <div class="form-group">
+                    <img id="selected-thumbnail" width="250" height="150" src="#">
+                </div>
+                <div class="form-group">
+                    <div class="progress">
+                        <div class="progress-bar" id="upload-progress" style="width: 0%">0%</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button id="save-category" type="button" class="btn btn-primary">Save</button>
+                </div>
+            </form>
+
+            <br/>
+            <div id="result"/>
+        </div>
+
+        <div class="col-lg-7">
+            <h4>Saved Categories</h4>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Thumbnail</th>
+                    </tr>
+                </thead>
+                <tbody id="categories">
+
+                </tbody>
+            </table>
+            <br />
+        </div>
+    </div>
+
+    <script type="text/javascript" src="js/categories.js"/>
+</body>
+</html>

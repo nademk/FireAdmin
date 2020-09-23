@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html class="h-100">
+<head>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+    <!-- Bootstrap js -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <!-- My CSS -->
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/5.8.3/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase-app.js"></script>
+
+    <!-- Add additional services that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase-storage.js"></script>
+
+    <script type="text/javascript" src="js/firebase-Initialization.js"></script>
+
+    <title> Admin Panel</title>
+</head>
+
+<body class="h-100">
+
+    <!-- NavBar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a id="nav-logo" class="navbar-brand href="admin.html">
+                Fire Admin
+            </a>
+
+            <div class="dropdown navbar-right">
+                <button id="user-email"
+                        class="btn btn-secondary dropdown-toggle"
+                        type="button"
+                        data-toggle="dropdown"
+                        aria-haspopup="true"
+                        aria-expanded="false">
+                    Welcome Admin
+                </button>
+
+                <div class="dropdown-menu" aria-labeledby="user-email">
+                    <a id="btn-logout" class="dropdown-item" href="#">
+                        Logout
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- NavBar Ends -->
+    <!-- Sidebar -->
+    <div class="row h-100 bg-light">
+        <div class="col-lg-2 bg-secondary">
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link" href="#" onclick="switchView('views/wallpapers.html')">
+                        <span class="text-dark">Wallpapers</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" onclick="switchView('views/categories.html')">
+                        <span class="text-dark">Categories</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="col-lg-10">
+            <div class="container" id="main-content">
+                
+            </div>
+        </div>
+    </div>
+    <!-- SideBar Ends -->
+
+    <!-- Link to js -->
+    <script type="text/javascript" src="js/admin.js"></script>
+    <script type="text/javascript">
+
+        firebase.auth().onAuthStateChanged(function (user) {
+            if (!user) {
+                //user is logged in
+                window.location.href = "index.html";
+            }
+        });
+
+        $(document).ready(function(){
+        	switchView('views/wallpapers.html');
+        });
+    </script>
+</body>
+</html>
